@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="MainUISkin" width="1280" height="720" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="214" height="722.61" x="0" y="-2.61" anchorOffsetY="0" fillColor="0x514f4f" anchorOffsetX="0" fillAlpha="1"/>
+	<e:Rect width="1062.97" height="720.31" x="209.03" y="-0.31" anchorOffsetX="0" anchorOffsetY="0" fillAlpha="1" fillColor="0xe5e5e5"/>
+	<e:Image source="logo_jpg" x="-0.03" y="0.48"  anchorOffsetY="0" height="64" anchorOffsetX="0" width="208.67"/>
+	<e:Group id="switchGroup" width="206" height="558" anchorOffsetY="0" anchorOffsetX="0" x="0" y="85">
+		<e:RadioButton label="订单管理" x="0" y="-1.5" skinName="skins.Button1" scaleX="1" scaleY="1" icon="icon2_png"/>
+		<e:RadioButton label="车辆管理" x="0" y="68" skinName="skins.Button1" scaleX="1" scaleY="1" icon="icon3_png"/>
+		<e:RadioButton label="运输管理" x="0" y="137" skinName="skins.Button1" scaleX="1" scaleY="1" icon="icon1_png"/>
+		<e:RadioButton label="客户信息" x="0" y="275" skinName="skins.Button1" scaleX="1" scaleY="1" icon="icon5_png"/>
+		<e:RadioButton label="权限管理" x="0" y="206" skinName="skins.Button1" scaleX="1" scaleY="1" icon="icon6_png"/>
+		<e:layout>
+			<e:VerticalLayout gap="10"/>
+		</e:layout>
+	</e:Group>
+	<e:Group id="MainGroup" width="1051.52" height="651.51" x="217.03" anchorOffsetX="0" anchorOffsetY="0" y="66.67"/>
+	<e:Group id="subGroup" width="1056" height="58" x="216" y="2" anchorOffsetX="0" anchorOffsetY="0"/>
+</e:Skin>

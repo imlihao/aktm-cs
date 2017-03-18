@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="loginSkin" width="1280" height="720" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Group id="bg" width="1700" height="720" x="0" y="0" anchorOffsetX="0" anchorOffsetY="0">
+		<e:Image source="bg_png" x="0" scale9Grid="0,160,1,960" width="1700" y="0" height="720"/>
+		<e:Image source="cloud_png" x="0" y="264"/>
+		<e:Image source="sky_png" x="0" y="0"/>
+	</e:Group>
+	<e:Label id="ds" text="安康天贸物流管理系统" x="336" y="132" anchorOffsetY="0" height="84" anchorOffsetX="0" width="628" size="60" fontFamily="Arial" textColor="0xccc9c9" bold="true"/>
+	<e:TextInput id="accInput" width="510" height="72" x="397" y="270" anchorOffsetX="0" anchorOffsetY="0" restrict="0-9" prompt="请输入账号"/>
+	<e:TextInput id="psdInput" width="510" height="72" x="397" y="360" anchorOffsetX="0" anchorOffsetY="0"  prompt="请输入密码" displayAsPassword="true"/>
+	<e:Button id="confirmBtn" label="确认登录" x="430" y="477" anchorOffsetX="0" width="440" anchorOffsetY="0" height="56"/>
+</e:Skin>
