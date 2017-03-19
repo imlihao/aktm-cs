@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="OderItemRander" width="1030" height="350" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="1030" height="346" x="0" y="2" strokeColor="0x333030" fillAlpha="0" strokeWeight="3" anchorOffsetY="0"/>
+	<e:Label id="order_id" text="单号：001" x="49" y="15" size="22" textColor="0xb2aeae"/>
+	<e:Label text="货物信息：" x="49" y="199.06" size="22" textColor="0xB2AEAE" anchorOffsetY="0" height="61.39"/>
+	<e:Label id="order_status" text="状态：出库中" x="224.07" y="15" size="22" textColor="0xB2AEAE"/>
+	<e:Label text="最近操作时间：" x="431.34" y="15" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="time" text="单号Userdata" x="585.34" y="15" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="Op" text="仓库操作员：二傻子" x="49" y="75.68" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="dirver" text="司机：罗永浩" x="549.19" y="68.68" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="customer" text="客户：中国家客户" x="49" y="137.69" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="addr" text="地址:" x="546.56" y="130.69" size="22" textColor="0xB2AEAE" anchorOffsetY="0" height="54" anchorOffsetX="0" width="439"/>
+	<e:Label id="detail" text="三顿打死你打死的骄傲搜打死打" x="158.01" y="199.06" size="22" textColor="0xB2AEAE" anchorOffsetY="0" height="94.39" anchorOffsetX="0" width="351"/>
+	<e:Label text="储位信息：" x="543.67" y="202.16" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="pos" text="三顿打死你打死的骄傲搜打死打" x="654.68" y="202.16" size="22" textColor="0xB2AEAE" anchorOffsetY="0" height="95.91" anchorOffsetX="0" width="301"/>
+	<e:Button id="finishBtn" label="完成" x="810.01" y="299.06" skinName="skins.ButtonSkin" anchorOffsetY="0" height="38" anchorOffsetX="0" width="126.67"/>
+</e:Skin>

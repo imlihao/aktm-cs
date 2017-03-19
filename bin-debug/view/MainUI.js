@@ -13,6 +13,7 @@ var MainUI = (function (_super) {
     __extends(MainUI, _super);
     function MainUI() {
         var _this = _super.call(this) || this;
+        _this.data = null;
         _this.skinName = MainUISkin;
         return _this;
     }
@@ -25,11 +26,68 @@ var MainUI = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    MainUI.prototype.init = function () {
+        this.switchGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.switch, this);
+        this.st.text = "职位：" + RoleSt2string(this.data.my.status);
+        this.nameLabel.text = "姓名：" + this.data.my.Uname;
+        this.id.text = "工号：" + this.data.my.UID;
+        if (!this.orderLayer)
+            this.orderLayer = new OrderView();
+        this.orderLayer.init();
+        this.MainGroup.addChild(this.orderLayer);
+    };
+    MainUI.prototype.switch = function (e) {
+        if (e.target instanceof eui.RadioButton) {
+            var btn = e.target;
+            this.MainGroup.removeChildren();
+            switch (btn.label) {
+                case "订单管理":
+                    if (!this.orderLayer)
+                        this.orderLayer = new OrderView();
+                    this.orderLayer.init();
+                    this.MainGroup.addChild(this.orderLayer);
+                    break;
+                case "司机信息":
+                    if (!this.orderLayer)
+                        this.orderLayer = new OrderView();
+                    this.orderLayer.userDisplay(3);
+                    this.MainGroup.addChild(this.orderLayer);
+                    break;
+                case "客户信息":
+                    this.orderLayer.cusDisplay();
+                    this.MainGroup.addChild(this.orderLayer);
+                    break;
+                case "仓储管理":
+                    this.orderLayer.userDisplay(2);
+                    this.MainGroup.addChild(this.orderLayer);
+                    break;
+                case "人事管理":
+                    //TODO 
+                    break;
+                case "我的订单":
+                    //TODO 
+                    break;
+            }
+        }
+    };
     Object.defineProperty(MainUI.prototype, "Userdata", {
+        get: function () {
+            return this.data;
+        },
         set: function (data) {
             this.data = data;
+            for (var _i = 0, _a = this.data.orders; _i < _a.length; _i++) {
+                var od = _a[_i];
+                if (!od.dirver)
+                    od.dirver = new user();
+                if (!od.operator)
+                    od.operator = new user();
+                if (!od.customer)
+                    od.customer = new customer();
+            }
             //TODO 初始化
-            console.error("开始初始化界面" + data.my.Uname + "status:" + data.my.status);
+            this.init();
+            UIManager.instance.showUI(this, true);
         },
         enumerable: true,
         configurable: true
@@ -37,4 +95,15 @@ var MainUI = (function (_super) {
     return MainUI;
 }(eui.Component));
 __reflect(MainUI.prototype, "MainUI");
-//# sourceMappingURL=MainUI.js.map
+function RoleSt2string(st) {
+    if (st == 1) {
+        return "普通操作员";
+    }
+    else if (st == 2) {
+        return "仓库操作员";
+    }
+    else if (st == 3) {
+        return "司机";
+    }
+    return "管理员";
+}

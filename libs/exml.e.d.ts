@@ -54,9 +54,15 @@ declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
 }
+declare class AddOrderView extends eui.Skin{
+}
 declare class MainUISkin extends eui.Skin{
 }
 declare class MainUiOrderSkin extends eui.Skin{
+}
+declare class OderItemRander extends eui.Skin{
+}
+declare class OperatorSkin extends eui.Skin{
 }
 declare class loginSkin extends eui.Skin{
 }

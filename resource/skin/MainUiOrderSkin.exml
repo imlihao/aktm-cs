@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="MainUiOrderSkin" width="400" height="300" xmlns:e="http://ns.egret.com/eui">
+<e:Skin class="MainUiOrderSkin" width="1040" height="650" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Scroller width="1050" height="570" x="0" y="0">
+		<e:Group>
+			<e:List id="list" x="0" y="0" anchorOffsetY="0"/>
+		</e:Group>
+	</e:Scroller>
+	<e:Button id="addBtn" label="新增订单" x="684" y="588" anchorOffsetX="0" width="204"/>
 </e:Skin>

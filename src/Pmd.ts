@@ -36,4 +36,23 @@ module Cmd{
       public users:Array<user>;
       public customers:Array<customer>;
    }
+    /**
+    * CS 改变订单状态
+    */
+   export class orderSt{
+      public order_ID:number;
+      public status:number;
+      Itype:string=messageType.OrderStatusReq;
+   }
+      /**
+    * CS 增加订单
+    */
+   export class orderAdd{
+      public cus_id:number;
+      public op_id:number;
+      public dirver_id:number;
+      public pos:string;
+      public des:string;
+      Itype:string=messageType.OrderAddReq;
+   }
 }

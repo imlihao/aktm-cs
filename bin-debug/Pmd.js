@@ -49,5 +49,26 @@ var Cmd;
     }());
     Cmd.UserData = UserData;
     __reflect(UserData.prototype, "Cmd.UserData");
+    /**
+    * CS 改变订单状态
+    */
+    var orderSt = (function () {
+        function orderSt() {
+            this.Itype = messageType.OrderStatusReq;
+        }
+        return orderSt;
+    }());
+    Cmd.orderSt = orderSt;
+    __reflect(orderSt.prototype, "Cmd.orderSt");
+    /**
+  * CS 增加订单
+  */
+    var orderAdd = (function () {
+        function orderAdd() {
+            this.Itype = messageType.OrderAddReq;
+        }
+        return orderAdd;
+    }());
+    Cmd.orderAdd = orderAdd;
+    __reflect(orderAdd.prototype, "Cmd.orderAdd");
 })(Cmd || (Cmd = {}));
-//# sourceMappingURL=Pmd.js.map

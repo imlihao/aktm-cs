@@ -91,4 +91,12 @@ class phrase{
        *   SC 弹出消息
        */
       static CahtServerMessgeRec:string="chatservermessage";
+      /**
+       *   SC 弹出消息
+       */
+      static OrderStatusReq:string="orderstatus";
+       /**
+       *   SC 增加订单
+       */
+      static OrderAddReq:string="orderadd";
 }

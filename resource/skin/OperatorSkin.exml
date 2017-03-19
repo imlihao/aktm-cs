@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="OperatorSkin" width="1030" height="200" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="1030" height="200" x="0" y="2" strokeColor="0x333030" fillAlpha="0" strokeWeight="3" anchorOffsetY="0"/>
+	<e:Label id="id" text="状态：出库中" x="366.49" y="37" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="carID" text="" x="371.05" y="111.12" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="status" text="单号Userdata" x="635.69" y="37" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="uname" text="仓库操作员：二傻子" x="49.01" y="37" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="phone" text="司机：罗永浩" x="62.65" y="113" size="22" textColor="0xB2AEAE"/>
+	<e:Label id="addr" text="司机：罗永浩" x="637.69" y="113" size="22" textColor="0xB2AEAE" anchorOffsetY="0" height="81.09" anchorOffsetX="0" width="336.55"/>
+</e:Skin>

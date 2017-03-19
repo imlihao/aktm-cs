@@ -71,7 +71,8 @@ var phrase = (function () {
                 pmd.loginsucc(dat);
                 break;
             case messageType.CahtServerMessgeRec:
-                pmd;
+                pmd.chatservermessage(dat);
+                break;
             default:
                 console.error("类型信息未找到");
                 break;
@@ -97,5 +98,12 @@ messageType.loginReq = "login";
 *   SC 弹出消息
 */
 messageType.CahtServerMessgeRec = "chatservermessage";
+/**
+ *   SC 弹出消息
+ */
+messageType.OrderStatusReq = "orderstatus";
+/**
+*   SC 增加订单
+*/
+messageType.OrderAddReq = "orderadd";
 __reflect(messageType.prototype, "messageType");
-//# sourceMappingURL=MySocket.js.map

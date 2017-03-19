@@ -21,10 +21,76 @@ class LoginView extends eui.Component{
           cmd.UID=Number(acc);
           cmd.psd=psd;
           NetMgr.instance.TcpSend(cmd);
-         
+          //this.Test();
        }else{
            notice.add("请输入正确信息");
        }
+   }
+
+   private Test(){
+        let u=new user();
+          u.UID=2013020202;
+          u.status=1;
+          u.Uname="屎蛋";
+          let us=new Array<user>();
+          us.push(u);
+          us.push(u);
+          us.push(u);
+           let u2=new user();
+          u2.UID=2013020203;
+          u2.status=2;
+          u2.Uname="大大";
+          us.push(u2);
+          us.push(u2);
+          us.push(u2);
+               let u3=new user();
+          u3.UID=2013020203;
+          u3.status=3;
+          u3.Uname="二二";
+          us.push(u3);
+          us.push(u3);
+          us.push(u3);
+          let cu=new customer();
+          cu.address="亚洲-日本-列岛";
+          cu.company="热天坛"
+          cu.customer_ID=1;
+          cu.phone="12321313";
+          let cus=new Array<customer>();
+          cus.push(cu);
+          cus.push(cu);
+          cus.push(cu);
+          cus.push(cu);
+          cus.push(cu);
+          cus.push(cu);
+          cus.push(cu);
+          cus.push(cu);
+          let od=new order();
+          od.order_ID=2;
+          od.customer=cu;
+          od.operator=u;
+          od.dirver=u;
+          od.detial="大大-肌肤的经济腹地-多岁的大三-大事记一IQ噩梦大师-大叔控啥的"
+          od.order_status=1;
+          od.order_time=1444402002;
+          od.pos="ii-pp-点睡-请求"
+          let ods=new Array<order>();
+          ods.push(od);
+          ods.push(od);
+          ods.push(od);
+          ods.push(od);
+          ods.push(od);
+          ods.push(od);
+  
+          let usd=new Cmd.UserData();
+          usd.customers=cus;
+           let uu=new user();
+          uu.UID=2013020203;
+          uu.status=1;
+          uu.Uname="二二";
+          usd.my=uu;
+          usd.orders=ods;
+          usd.users=us;
+          MainUI.instance.Userdata=usd;
    }
 }
 

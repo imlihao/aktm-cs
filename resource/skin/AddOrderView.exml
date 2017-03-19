@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="AddOrderView" width="1280" height="720" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="1280" height="720" x="0" y="0" fillAlpha="0.4"/>
+	<e:Rect width="630" height="662" x="301" y="22" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xd6c9c9"/>
+	<e:TextInput id="desInput" width="354" height="72" x="463" y="353" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:TextInput id="posInput" width="354" height="72" x="463" y="481" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:Label text="新建订单" x="538" y="68" textColor="0x282727"/>
+	<e:Label text="货物信息" x="348" y="360" textColor="0x282727" size="22"/>
+	<e:Label text="客户：" x="373" y="132" textColor="0x282727" size="22"/>
+	<e:Label id="cusLabel" text="中建" x="446" y="132" textColor="0x282727" size="22"/>
+	<e:Label text="操作员：" x="373" y="180" textColor="0x282727" size="22"/>
+	<e:Label id="opLabel" text="某某" x="466" y="180" textColor="0x282727" size="22"/>
+	<e:Label text="司机：" x="376" y="228" textColor="0x282727" size="22"/>
+	<e:Label id="dirverLabel" text="那谁" x="449" y="228" textColor="0x282727" size="22"/>
+	<e:Label text="储位信息" x="348" y="481" textColor="0x282727" size="22"/>
+	<e:Button id="closeBtn" label="取消" x="413" y="592"/>
+	<e:Button label="重新选择" x="602" y="131" anchorOffsetY="0" height="30"/>
+	<e:Button label="重新选择" x="602" y="177" anchorOffsetY="0" height="30"/>
+	<e:Button label="重新选择" x="602" y="219" anchorOffsetY="0" height="30"/>
+	<e:Button id="confirmBtn" label="确认" x="717" y="592"/>
+</e:Skin>

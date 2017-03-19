@@ -28,4 +28,3 @@ var customer = (function () {
     return customer;
 }());
 __reflect(customer.prototype, "customer");
-//# sourceMappingURL=valueObj.js.map
