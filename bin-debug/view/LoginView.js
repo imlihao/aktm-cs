@@ -22,7 +22,7 @@ var LoginView = (function (_super) {
         var acc = this.accInput.text;
         var psd = this.psdInput.text;
         if (acc && psd) {
-            var cmd = new Cmd.user();
+            var cmd = new Cmd.login();
             cmd.UID = Number(acc);
             cmd.psd = psd;
             NetMgr.instance.TcpSend(cmd);
@@ -42,6 +42,9 @@ var notice = (function () {
     //      if(!notice.self)notice.self=new notice();
     //      return notice.self;  
     //    }
+    /**
+     * @ param str  要弹出的信息
+     */
     notice.add = function (str) {
         var label = new eui.Label();
         label.text = str;
@@ -55,3 +58,4 @@ var notice = (function () {
     return notice;
 }());
 __reflect(notice.prototype, "notice");
+//# sourceMappingURL=LoginView.js.map

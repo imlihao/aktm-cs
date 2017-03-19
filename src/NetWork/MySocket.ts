@@ -64,8 +64,11 @@ class phrase{
    } 
    public static judge(dat:any,type:string){
       switch(type){
-        case "loginsuccess":
+        case messageType.loginSuccessRec:
                pmd.loginsucc(dat);
+               break;
+        case messageType.CahtServerMessgeRec:
+               pmd.chatservermessage(dat);
                break;
         default:
                console.error("类型信息未找到");
@@ -75,13 +78,17 @@ class phrase{
 
    }
 }
-
-module pmd{
-   export function loginsucc(dat:Cmd.user){
-       
-      console.log(dat);
-      console.log("接受成功");
-      
-   }
-
+ class messageType {
+	  /**
+       *  SC  登陆成功
+       */
+      static  loginSuccessRec:string="loginsuccess";
+      /**
+       *  CS　登陆请求
+       */
+      static loginReq:string="login";
+       /**
+       *   SC 弹出消息
+       */
+      static CahtServerMessgeRec:string="chatservermessage";
 }

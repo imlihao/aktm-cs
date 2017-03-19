@@ -67,9 +67,11 @@ var phrase = (function () {
     };
     phrase.judge = function (dat, type) {
         switch (type) {
-            case "loginsuccess":
+            case messageType.loginSuccessRec:
                 pmd.loginsucc(dat);
                 break;
+            case messageType.CahtServerMessgeRec:
+                pmd;
             default:
                 console.error("类型信息未找到");
                 break;
@@ -78,11 +80,22 @@ var phrase = (function () {
     return phrase;
 }());
 __reflect(phrase.prototype, "phrase");
-var pmd;
-(function (pmd) {
-    function loginsucc(dat) {
-        console.log(dat);
-        console.log("接受成功");
+var messageType = (function () {
+    function messageType() {
     }
-    pmd.loginsucc = loginsucc;
-})(pmd || (pmd = {}));
+    return messageType;
+}());
+/**
+ *  SC  登陆成功
+ */
+messageType.loginSuccessRec = "loginsuccess";
+/**
+ *  CS　登陆请求
+ */
+messageType.loginReq = "login";
+/**
+*   SC 弹出消息
+*/
+messageType.CahtServerMessgeRec = "chatservermessage";
+__reflect(messageType.prototype, "messageType");
+//# sourceMappingURL=MySocket.js.map

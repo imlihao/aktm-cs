@@ -27,3 +27,4 @@ var NetMgr = (function () {
     return NetMgr;
 }());
 __reflect(NetMgr.prototype, "NetMgr");
+//# sourceMappingURL=NetMgr.js.map

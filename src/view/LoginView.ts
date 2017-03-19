@@ -17,7 +17,7 @@ class LoginView extends eui.Component{
        let acc=this.accInput.text;
        let psd=this.psdInput.text;
        if(acc&&psd){
-          let cmd=new Cmd.user();
+          let cmd=new Cmd.login();
           cmd.UID=Number(acc);
           cmd.psd=psd;
           NetMgr.instance.TcpSend(cmd);
@@ -34,6 +34,9 @@ class notice{
 //      if(!notice.self)notice.self=new notice();
 //      return notice.self;  
 //    }
+   /**
+    * @ param str  要弹出的信息 
+    */
    public static add(str:string){
         let label=new eui.Label();
         label.text=str;

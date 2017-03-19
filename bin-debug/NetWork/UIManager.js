@@ -50,3 +50,4 @@ var UIManager = (function (_super) {
     return UIManager;
 }(egret.DisplayObjectContainer));
 __reflect(UIManager.prototype, "UIManager");
+//# sourceMappingURL=UIManager.js.map
