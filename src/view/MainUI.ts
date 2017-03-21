@@ -67,6 +67,7 @@ class MainUI extends eui.Component{
 
     private data:Cmd.UserData=null;
     public set Userdata(data:Cmd.UserData){
+      if(!this.data){
         this.data=data;
         for(let od of this.data.orders){
           if(!od.dirver)od.dirver=new user();
@@ -75,7 +76,16 @@ class MainUI extends eui.Component{
         }
         //TODO 初始化
        this.init();
-       UIManager.instance.showUI(this,true);
+      UIManager.instance.showUI(this,true);
+    }else{
+        this.data=data;
+        for(let od of this.data.orders){
+          if(!od.dirver)od.dirver=new user();
+          if(!od.operator)od.operator=new user();
+          if(!od.customer)od.customer=new customer();
+        }
+       if(this.orderLayer)this.orderLayer.flush();
+    }
     }
     public get Userdata():Cmd.UserData{
           return this.data;

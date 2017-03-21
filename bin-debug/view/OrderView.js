@@ -27,6 +27,9 @@ var OrderView = (function (_super) {
         this.list.dataProvider = new eui.ArrayCollection(users);
         this.addBtn.visible = false;
     };
+    OrderView.prototype.flush = function () {
+        this.list.dataProviderRefreshed();
+    };
     OrderView.prototype.cusDisplay = function () {
         this.addBtn.visible = false;
         this.list.itemRenderer = cusItem;
@@ -68,7 +71,7 @@ var OrderView = (function (_super) {
             if (u.status == 2)
                 op = u;
             if (u.status == 3)
-                op = u;
+                diver = u;
         }
         if (op && diver && MainUI.instance.Userdata.customers.length != 0) {
             var view = new AddOrder();

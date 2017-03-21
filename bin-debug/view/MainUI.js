@@ -75,19 +75,35 @@ var MainUI = (function (_super) {
             return this.data;
         },
         set: function (data) {
-            this.data = data;
-            for (var _i = 0, _a = this.data.orders; _i < _a.length; _i++) {
-                var od = _a[_i];
-                if (!od.dirver)
-                    od.dirver = new user();
-                if (!od.operator)
-                    od.operator = new user();
-                if (!od.customer)
-                    od.customer = new customer();
+            if (!this.data) {
+                this.data = data;
+                for (var _i = 0, _a = this.data.orders; _i < _a.length; _i++) {
+                    var od = _a[_i];
+                    if (!od.dirver)
+                        od.dirver = new user();
+                    if (!od.operator)
+                        od.operator = new user();
+                    if (!od.customer)
+                        od.customer = new customer();
+                }
+                //TODO 初始化
+                this.init();
+                UIManager.instance.showUI(this, true);
             }
-            //TODO 初始化
-            this.init();
-            UIManager.instance.showUI(this, true);
+            else {
+                this.data = data;
+                for (var _b = 0, _c = this.data.orders; _b < _c.length; _b++) {
+                    var od = _c[_b];
+                    if (!od.dirver)
+                        od.dirver = new user();
+                    if (!od.operator)
+                        od.operator = new user();
+                    if (!od.customer)
+                        od.customer = new customer();
+                }
+                if (this.orderLayer)
+                    this.orderLayer.flush();
+            }
         },
         enumerable: true,
         configurable: true

@@ -18,6 +18,9 @@ class OrderView extends eui.Component{
             this.addBtn.visible=false;
          
     }
+    public flush(){
+        this.list.dataProviderRefreshed();
+    }
     public cusDisplay(){
             this.addBtn.visible=false;
             this.list.itemRenderer=cusItem;
@@ -57,7 +60,7 @@ class OrderView extends eui.Component{
         let cus:customer=null;
         for(let u of MainUI.instance.Userdata.users){
             if(u.status==2)op=u;
-            if(u.status==3)op=u;
+            if(u.status==3)diver=u;
         }
         if(op&&diver&&MainUI.instance.Userdata.customers.length!=0){
               let view=new AddOrder();
