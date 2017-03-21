@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="addRoleSkin" width="1280" height="720" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Rect width="1280" height="720" x="-1.52" y="0" fillAlpha="0.4"/>
+	<e:Rect width="630" height="662" x="299.48" y="22" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xD6C9C9"/>
+	<e:TextInput id="UIDInput" width="354" height="40" x="453.65" y="157.71" anchorOffsetX="0" anchorOffsetY="0" restrict="0-9"/>
+	<e:TextInput id="nameInput" width="354" height="40" x="453.46" y="241" anchorOffsetX="0" anchorOffsetY="0"/>
+	<e:TextInput id="psdInput" width="354" height="40" x="453.67" y="324.04" anchorOffsetX="0" anchorOffsetY="0" />
+	<e:Label id="titleLabel" text="增加操作员" x="536.48" y="68" textColor="0x282727"/>
+	<e:Label text="" x="346.48" y="360" textColor="0x282727" size="22"/>
+	<e:Label text="工号：" x="371.48" y="166.71" textColor="0x282727" size="22"/>
+	<e:Label text="姓名：" x="371.48" y="251" textColor="0x282727" size="22"/>
+	<e:Label text="密码：" x="373.15" y="336.03" textColor="0x282727" size="22"/>
+	<e:TextInput id="CarIDInput" width="354" height="40" x="453.46" y="418.89" anchorOffsetX="0"  anchorOffsetY="0"/>
+	<e:Label id="carLabel" text="车牌号：" x="372.94" y="430.88" textColor="0x282727" size="22"/>
+	<e:Button id="closeBtn" label="取消" x="411.48" y="513.33"/>
+	<e:Button id="confirmBtn" label="确认" x="715.48" y="518.68"/>
+</e:Skin>

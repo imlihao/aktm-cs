@@ -106,4 +106,12 @@ messageType.OrderStatusReq = "orderstatus";
 *   SC 增加订单
 */
 messageType.OrderAddReq = "orderadd";
+/**
+*   CS 删除订单
+*/
+messageType.OrderDelReq = "orderdel";
+/**
+ *CS 增加人物
+*/
+messageType.roleChangeReq = "roleChange";
 __reflect(messageType.prototype, "messageType");

@@ -99,4 +99,13 @@ class phrase{
        *   SC 增加订单
        */
       static OrderAddReq:string="orderadd";
+          /**
+       *   CS 删除订单
+       */
+       static OrderDelReq="orderdel";
+        
+       /**
+        *CS 增加人物
+       */
+      static  roleChangeReq="roleChange";
 }

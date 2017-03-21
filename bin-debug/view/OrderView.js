@@ -10,10 +10,20 @@ var OrderView = (function (_super) {
     __extends(OrderView, _super);
     function OrderView() {
         var _this = _super.call(this) || this;
+        _this.b1 = true;
+        _this.b2 = true;
+        _this.b3 = true;
         _this.skinName = MainUiOrderSkin;
         return _this;
         // this.init();
     }
+    OrderView.prototype.setVis = function () {
+        this.addBtn.visible = false;
+        this.addBtn0.visible = false;
+        this.addBtn1.visible = false;
+        this.addBtn2.visible = false;
+        this.sc.viewport.scrollV = 0;
+    };
     OrderView.prototype.userDisplay = function (status) {
         var users = new Array();
         if (MainUI.instance.Userdata.users.length != 0) {
@@ -23,15 +33,33 @@ var OrderView = (function (_super) {
                     users.push(u);
             }
         }
+        if (MainUI.instance.Userdata.my.status == 4) {
+            this.addBtn0.visible = true;
+            if (this.b1) {
+                this.addBtn0.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+                    UIManager.instance.showPop(new AddOpView(status));
+                }, this);
+                this.b1 = false;
+            }
+        }
         this.list.itemRenderer = userItem;
         this.list.dataProvider = new eui.ArrayCollection(users);
         this.addBtn.visible = false;
     };
     OrderView.prototype.flush = function () {
+        this.list.itemRenderer = this.list.itemRenderer;
         this.list.dataProviderRefreshed();
     };
     OrderView.prototype.cusDisplay = function () {
-        this.addBtn.visible = false;
+        if (MainUI.instance.Userdata.my.status == 4 || MainUI.instance.Userdata.my.status == 1) {
+            this.addBtn1.visible = true;
+            if (this.b2) {
+                this.addBtn1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+                    UIManager.instance.showPop(new AddCusView());
+                }, this);
+                this.b2 = false;
+            }
+        }
         this.list.itemRenderer = cusItem;
         this.list.dataProvider = new eui.ArrayCollection(MainUI.instance.Userdata.customers);
     };
@@ -56,7 +84,10 @@ var OrderView = (function (_super) {
         this.list.scrollEnabled = true;
         if (MainUI.instance.Userdata.my.status == 1 || MainUI.instance.Userdata.my.status == 4) {
             this.addBtn.visible = true;
-            this.addBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addOrder, this);
+            if (this.b3) {
+                this.addBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.addOrder, this);
+                this.b3 = false;
+            }
         }
         else {
             this.addBtn.visible = false;
@@ -100,6 +131,18 @@ var userItem = (function (_super) {
         this.status.text = "职位：" + RoleSt2string(dat.status);
         this.phone.text = "电话：" + "1300000001";
         this.uname.text = "姓名：" + dat.Uname;
+        if (MainUI.instance.Userdata.my.status == 4) {
+            this.delBtn.visible = true;
+            this.delBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.delRole, this);
+        }
+    };
+    userItem.prototype.delRole = function () {
+        var us = new user();
+        us.UID = this.data.UID;
+        var cmd = new Cmd.rolechange();
+        cmd.bool = false;
+        cmd.op = us;
+        NetMgr.instance.TcpSend(cmd);
     };
     return userItem;
 }(eui.ItemRenderer));
@@ -116,8 +159,21 @@ var cusItem = (function (_super) {
         this.id.text = "编号：" + dat.customer_ID;
         this.uname.text = "姓名：" + dat.customer_name;
         this.status.text = "公司：" + dat.company;
+        this.addr.visible = true;
         this.addr.text = "地址：" + dat.address;
         this.phone.text = "电话：" + dat.phone;
+        if (MainUI.instance.Userdata.my.status == 4 || MainUI.instance.Userdata.my.status == 1) {
+            this.delBtn.visible = true;
+            this.delBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.delRole, this);
+        }
+    };
+    cusItem.prototype.delRole = function () {
+        var us = new customer();
+        us.customer_ID = this.data.customer_ID;
+        var cmd = new Cmd.rolechange();
+        cmd.bool = false;
+        cmd.cus = us;
+        NetMgr.instance.TcpSend(cmd);
     };
     return cusItem;
 }(eui.ItemRenderer));

@@ -39,17 +39,16 @@ var MainUI = (function (_super) {
     MainUI.prototype.switch = function (e) {
         if (e.target instanceof eui.RadioButton) {
             var btn = e.target;
+            if (!this.orderLayer)
+                this.orderLayer = new OrderView();
             this.MainGroup.removeChildren();
+            this.orderLayer.setVis();
             switch (btn.label) {
                 case "订单管理":
-                    if (!this.orderLayer)
-                        this.orderLayer = new OrderView();
                     this.orderLayer.init();
                     this.MainGroup.addChild(this.orderLayer);
                     break;
                 case "司机信息":
-                    if (!this.orderLayer)
-                        this.orderLayer = new OrderView();
                     this.orderLayer.userDisplay(3);
                     this.MainGroup.addChild(this.orderLayer);
                     break;

@@ -6,5 +6,6 @@
 	<e:Label id="status" text="单号Userdata" x="635.69" y="37" size="22" textColor="0xB2AEAE"/>
 	<e:Label id="uname" text="仓库操作员：二傻子" x="49.01" y="37" size="22" textColor="0xB2AEAE"/>
 	<e:Label id="phone" text="司机：罗永浩" x="62.65" y="113" size="22" textColor="0xB2AEAE"/>
-	<e:Label id="addr" text="司机：罗永浩" x="637.69" y="113" size="22" textColor="0xB2AEAE" anchorOffsetY="0" height="81.09" anchorOffsetX="0" width="336.55"/>
+	<e:Label id="addr" text="司机：罗永浩" x="637.69" y="113" size="22" textColor="0xB2AEAE" anchorOffsetY="0" height="81.09" anchorOffsetX="0" width="336.55" visible="false"/>
+	<e:Button id="delBtn" label="删除" x="907.55" y="16.92" visible="false"/>
 </e:Skin>

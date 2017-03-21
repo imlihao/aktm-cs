@@ -55,4 +55,20 @@ module Cmd{
       public des:string;
       Itype:string=messageType.OrderAddReq;
    }
+    /**
+    * CS 删除订单
+    */
+   export class orderDel{
+       public  order_ID:number;
+      Itype:string=messageType.OrderDelReq;
+   }
+   /**
+    * CS 改变人物
+    */
+   export class rolechange{
+       public op:user;
+       public cus:customer;
+       public bool:boolean;
+      Itype:string=messageType.roleChangeReq;
+   }
 }

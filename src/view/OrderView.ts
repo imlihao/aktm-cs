@@ -6,6 +6,19 @@ class OrderView extends eui.Component{
     }
     private list:eui.List;
     private addBtn:eui.Button;
+    private addBtn0:eui.Button;
+    private addBtn1:eui.Button;
+    private addBtn2:eui.Button;
+    private sc:eui.Scroller;
+    public setVis(){
+       this.addBtn.visible=false;
+       this.addBtn0.visible=false;
+       this.addBtn1.visible=false;
+       this.addBtn2.visible=false;
+       this.sc.viewport.scrollV=0;
+       
+    }
+    private b1:boolean=true;
     public userDisplay(status:number){
         let users=new Array<user>();
          if(MainUI.instance.Userdata.users.length!=0){
@@ -13,22 +26,39 @@ class OrderView extends eui.Component{
                  if(u.status==status)users.push(u);
              }
          }
+         if(MainUI.instance.Userdata.my.status==4){
+             this.addBtn0.visible=true;
+            if(this.b1){ this.addBtn0.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{
+                 UIManager.instance.showPop(new AddOpView(status));
+            },this);
+            this.b1=false;
+        }
+         }
          this.list.itemRenderer=userItem;
          this.list.dataProvider=new eui.ArrayCollection(users);
-            this.addBtn.visible=false;
+         this.addBtn.visible=false;
          
     }
     public flush(){
+        this.list.itemRenderer= this.list.itemRenderer;
         this.list.dataProviderRefreshed();
     }
+    private b2:boolean=true;
     public cusDisplay(){
-            this.addBtn.visible=false;
-            this.list.itemRenderer=cusItem;
+    if(MainUI.instance.Userdata.my.status==4||MainUI.instance.Userdata.my.status==1){
+         this.addBtn1.visible=true;
+         if(this.b2){
+         this.addBtn1.addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{
+                 UIManager.instance.showPop(new AddCusView());
+           },this);
+    this.b2=false;
+    }
+}
+         this.list.itemRenderer=cusItem;
          this.list.dataProvider=new eui.ArrayCollection(MainUI.instance.Userdata.customers);
     }
     public init(){
-        this.list.itemRenderer=orderItem;
-        
+        this.list.itemRenderer=orderItem;     
         if(MainUI.instance.Userdata.my.status==2||MainUI.instance.Userdata.my.status==3){
             console.error(MainUI.instance.Userdata.orders);       
             let orders=new Array<order>();
@@ -47,13 +77,15 @@ class OrderView extends eui.Component{
 
         if(MainUI.instance.Userdata.my.status==1||MainUI.instance.Userdata.my.status==4){
             this.addBtn.visible=true;
-            this.addBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.addOrder,this);
+            if(this.b3){this.addBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.addOrder,this);
+                this.b3=false;
+                }
         
         }else{
             this.addBtn.visible=false;
         }
     }
-
+    private b3:boolean=true;
     private addOrder(){
         let op:user=null;
         let diver:user=null;
@@ -77,6 +109,7 @@ class userItem extends eui.ItemRenderer{
         super();
         this.skinName=OperatorSkin;
     } 
+    private delBtn:eui.Button;
     private id:eui.Label;
     private carID:eui.Label;
     private status:eui.Label;
@@ -89,8 +122,19 @@ class userItem extends eui.ItemRenderer{
        this.status.text="职位："+RoleSt2string(dat.status);
        this.phone.text="电话："+"1300000001";
        this.uname.text="姓名："+dat.Uname;
+    if(MainUI.instance.Userdata.my.status==4){
+           this.delBtn.visible=true;
+           this.delBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.delRole,this);
+       }
     }
-
+ private delRole(){
+      let us=new user();
+      us.UID=this.data.UID;
+      let cmd=new Cmd.rolechange();
+      cmd.bool=false;
+      cmd.op=us;
+      NetMgr.instance.TcpSend(cmd);
+  }
 }
 
 class cusItem extends eui.ItemRenderer{
@@ -98,6 +142,7 @@ class cusItem extends eui.ItemRenderer{
         super();
         this.skinName=OperatorSkin;
     } 
+    private delBtn:eui.Button;
     private id:eui.Label;
     private carID:eui.Label;
     private status:eui.Label;
@@ -109,10 +154,22 @@ class cusItem extends eui.ItemRenderer{
        this.id.text="编号："+dat.customer_ID;
        this.uname.text="姓名："+dat.customer_name;
        this.status.text="公司："+dat.company;
+        this.addr.visible=true;
        this.addr.text="地址："+dat.address;
        this.phone.text="电话："+dat.phone;
+       if(MainUI.instance.Userdata.my.status==4||MainUI.instance.Userdata.my.status==1){
+           this.delBtn.visible=true;
+           this.delBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.delRole,this);
+       }
     }
-
+ private delRole(){
+      let us=new customer();
+      us.customer_ID=this.data.customer_ID;
+      let cmd=new Cmd.rolechange();
+      cmd.bool=false;
+      cmd.cus=us;
+      NetMgr.instance.TcpSend(cmd);
+  }
 }
 class orderItem extends eui.ItemRenderer{
     constructor(){

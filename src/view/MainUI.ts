@@ -29,15 +29,15 @@ class MainUI extends eui.Component{
     private switch(e:egret.TouchEvent){
         if(e.target instanceof eui.RadioButton){
             let btn:eui.RadioButton=e.target;
+             if(!this.orderLayer)this.orderLayer=new OrderView();
             this.MainGroup.removeChildren();
+            this.orderLayer.setVis();
             switch(btn.label){
-                 case "订单管理":
-                   if(!this.orderLayer)this.orderLayer=new OrderView();
+                 case "订单管理":      
                    this.orderLayer.init();
                    this.MainGroup.addChild(this.orderLayer);
                    break;
                  case "司机信息":
-                   if(!this.orderLayer)this.orderLayer=new OrderView();
                    this.orderLayer.userDisplay(3);
                    this.MainGroup.addChild(this.orderLayer); 
                    break;

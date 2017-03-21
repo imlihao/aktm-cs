@@ -71,4 +71,26 @@ var Cmd;
     }());
     Cmd.orderAdd = orderAdd;
     __reflect(orderAdd.prototype, "Cmd.orderAdd");
+    /**
+    * CS 删除订单
+    */
+    var orderDel = (function () {
+        function orderDel() {
+            this.Itype = messageType.OrderDelReq;
+        }
+        return orderDel;
+    }());
+    Cmd.orderDel = orderDel;
+    __reflect(orderDel.prototype, "Cmd.orderDel");
+    /**
+     * CS 改变人物
+     */
+    var rolechange = (function () {
+        function rolechange() {
+            this.Itype = messageType.roleChangeReq;
+        }
+        return rolechange;
+    }());
+    Cmd.rolechange = rolechange;
+    __reflect(rolechange.prototype, "Cmd.rolechange");
 })(Cmd || (Cmd = {}));

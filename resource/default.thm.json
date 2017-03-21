@@ -30,11 +30,13 @@
     "resource/eui_skins/ToggleSwitchSkin.exml",
     "resource/eui_skins/VScrollBarSkin.exml",
     "resource/eui_skins/VSliderSkin.exml",
+    "resource/skin/AddCustomer.exml",
     "resource/skin/AddOrderView.exml",
     "resource/skin/MainUISkin.exml",
     "resource/skin/MainUiOrderSkin.exml",
     "resource/skin/OderItemRander.exml",
     "resource/skin/OperatorSkin.exml",
+    "resource/skin/addRoleSkin.exml",
     "resource/skin/loginSkin.exml"
   ]
 }
